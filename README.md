@@ -1,5 +1,5 @@
 # Springbootapp
-This project was initiated to build spring boot application to  using the following spring freamwork.
+This project was initiated to build spring boot application using the following spring framework.
 
 ## What i wanted to achieve in this project ?
 Building application that's exposed web-service end-point to end user, where the information send in HTTP requests is going to be stored in database.
@@ -13,7 +13,7 @@ These instructions will get you a copy of the project up and running on your loc
 * [Docker](https://www.docker.com/) - Containerization tool
 * [Docker-Compose](https://docs.docker.com/compose/install/) - Container Orchestration tool
 * [MySQL Workbench](https://dev.mysql.com/downloads/workbench/) - RDBMS (or you can choose any DB that you are comfortable with)
-*[Postman](https://www.getpostman.com/apps) - Tools build to test webserice 
+* [Postman](https://www.getpostman.com/apps) - Tools build to test web-service 
 
 ### Installation
 
@@ -103,8 +103,8 @@ docker-compose --version
 
 ## Project structure
 
-Project is consisted of main project (springbootapp) built using maven build tool.
-springbootapp main project contains pom.xml which includes properties, dependencies and plugins.
+* Project is consisted of main project (springbootapp) built using maven build tool.
+* springbootapp main project contains pom.xml which includes properties, dependencies and plugins.
 
 
 #### How configure spring boot application
@@ -123,33 +123,33 @@ springbootapp main project contains pom.xml which includes properties, dependenc
 
 ```
 <dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.12</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-	</dependencies>
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-web</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-data-jpa</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>mysql</groupId>
+		<artifactId>mysql-connector-java</artifactId>
+		<version>8.0.12</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-actuator</artifactId>
+	</dependency>
+</dependencies>
 ```
 
 * Add Java version property in properties section.
 
 ```
 <properties>
-		<java.version>1.8</java.version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
+	<java.version>1.8</java.version>
+	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+</properties>
 ```
 
 * Create java class annotated using @SpringBootApplication, that tells spring this class is starting point of spring boot application, then in main method of the class call a static method
@@ -163,7 +163,7 @@ public class Application {
 }
 ```
 
-* Now you can test you configuration by running the spring boot application,either from eclipse 'run as java application' neither execute "mvn spring-boot:run" but make sure to navigate to directory of the project where the pom.xml file located.
+* Now test the configuration by running the spring boot application, either from eclipse 'run as java application' neither execute "mvn spring-boot:run" but make sure to navigate to directory of the project where the pom.xml file located.
 
 ```
 mvn spring-boot:run
@@ -185,13 +185,13 @@ sudo mvn spring-boot:run
 * [Common application properties]( https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html)
 
 #### Dockerfile
-To build docker image, create Dockerfile, and write the instructions required for that.
+To build docker image, create [Dockerfile](https://github.com/MBA90/springbootapp/blob/master/Dockerfile), and write the instructions required for that.
 In this project, i built image that contain executable jar file of springbootapp, for more clarity take a look at Dockerfile within this project.  
 
 #### Docker-compose
 to define and run multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services.
 
-here i used docker compose because i have two images build and run into two different container, for or more clarity take a look at docker-compose.yml file within this project   
+here i used docker compose because i have two images build and run into two different container, for or more clarity take a look at [docker-compose.yml](https://github.com/MBA90/springbootapp/blob/master/docker-compose.yml) file within this project   
 
 
 ## Building and running 
@@ -244,7 +244,7 @@ please note that during the build you will find that the image is build, thats b
 </plugins>
 ```
 
-* After building the project, i need to check weather the images build, for that in terminal execute the following command
+* After building the project, i need to check whether the images build, for that in terminal execute the following command
 
 ```
 docker images 
@@ -263,7 +263,7 @@ To be able run the project with docker execute the following command in terminal
 ```
 docker-compose up
 ```
-after execute "docker-compose up" command and you wanted to check wheather the images are loaded to running container execute the following command  
+after execute "docker-compose up" command and you wanted to check whether the images are loaded into running container execute the following command  
 
 ```
 docker ps
@@ -280,8 +280,7 @@ CONTAINER ID        IMAGE                      COMMAND                  CREATED 
 
 ## Database 
 
-springboot application required database schema, refer back to docker-compose file where you can find "db" service which in fact override mysql:8.0.12 image installed from docker hub which running the application after executing 
-"docker-compose up" command
+springboot application required database, refer back to docker-compose file where you can find "db" service which in fact override [mysql:8.0.12](https://hub.docker.com/_/mysql/) image installed from [docker hub](https://hub.docker.com/).
 
 Once the application is up and running as well as the images loaded into docker container, don't forget to run the following script in database schema "mbaDB"
 
