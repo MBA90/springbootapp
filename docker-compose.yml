@@ -1,0 +1,20 @@
+version: '3.3'
+
+services:
+   springbootapp:
+      image: mba/springbootapp:latest
+      ports: 
+        - "8090:8080"
+      depends_on:
+         - "db"
+   
+   db:
+      image: mysql:8.0.12
+      ports:
+         - "3306:3306"
+      environment:
+         MYSQL_ROOT_PASSWORD: "root1234"
+         MYSQL_DATABASE: "mbaDB"
+      volumes:
+         - "/Users/MBA/dockerdata/springbootmysql:/var/lib/mysql"   
+
